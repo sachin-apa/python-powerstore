@@ -27,5 +27,6 @@ jobs:
       - name: Run Unit Test and Generate report  
         run: |
           coverage run -m PyPowerStore/tests/unit_tests/test_*.py
+        working-directory: /home/runner/work/python-powerstore/python-powerstore
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v5
