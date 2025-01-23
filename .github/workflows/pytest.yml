@@ -25,7 +25,7 @@ jobs:
           pip install testtools requests pytest pytest-coverage coverage
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Unit Test and Generate report  
-        run: |  
-          coverage run -m unittest
+        run: |
+          coverage run -m -v PyPowerStore/tests/unit_tests/test_*.py
       - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v5
