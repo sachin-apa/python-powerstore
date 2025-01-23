@@ -13,8 +13,6 @@ jobs:
     steps:  
       - name: Check out the code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: ‘2’
       - name: Set up Python ${{ matrix.python-version }}  
         uses: actions/setup-python@v4  
         with:  
@@ -26,7 +24,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run Unit Test and Generate report  
         run: |
-          coverage run -m PyPowerStore/tests/unit_tests/test_*.py
-        working-directory: /home/runner/work/python-powerstore/python-powerstore
+          coverage run -m pytest -v PyPowerStore/tests/unit_tests/test_*.py
       - name: Upload Coverage to Codecov
         uses: codecov/codecov-action@v5
