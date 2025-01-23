@@ -1,6 +1,11 @@
 name: Run Unit Test via Pytest  
   
-on: [push]  
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  
   
 jobs:  
   build:  
